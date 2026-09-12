@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "memwatch"
+version = "0.1.0"
+description = "Monitor and fix AI agent memory rot — stale facts, contradictions, duplicates"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [{name = "Yunare Maia", email = "yunare@gmail.com"}]
+keywords = ["ai-agent", "memory", "stale-detection", "llm", "memory-rot", "health-monitor"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "click>=8.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "pytest-cov"]
+
+[project.scripts]
+memwatch = "memwatch.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/yunaremaia/memwatch"
+Issues = "https://github.com/yunaremaia/memwatch/issues"
+
+[tool.setuptools.packages.find]
+include = ["memwatch*"]
+exclude = ["tests*"]
